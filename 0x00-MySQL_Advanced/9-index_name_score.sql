@@ -1,10 +1,10 @@
--- Write a SQL script that creates an index idx_name_first_score on the
--- table names and the first letter of name and the score.
+-- Write a SQL script that creates an index idx_name_first on the table names
+-- and the first letter of name.
 
 -- Requirements:
 
 -- Import this table dump: names.sql.zip
--- Only the first letter of name AND score must be indexed
+-- Only the first letter of name must be indexed
+-- Context: Index is not the solution for any performance issue, but well used, it’s really powerful!
 
-DROP INDEX IF EXISTS idx_name_first_score;
-CREATE INDEX idx_name_first_score ON names(LEFT(name, 1), score);
+CREATE INDEX idx_name_first ON names (name(1));
