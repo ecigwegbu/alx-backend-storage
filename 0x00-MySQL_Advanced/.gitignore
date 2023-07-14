@@ -1,0 +1,14 @@
+*.swp
+*.bak
+*.tmp
+temp
+*.v*
+*.works
+large
+large/
+large/*
+large/*.*
+metal_bands.sql
+names.sql
+tmp_res
+v0
