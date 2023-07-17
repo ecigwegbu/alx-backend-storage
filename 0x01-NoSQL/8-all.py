@@ -14,5 +14,5 @@ def list_all(mongo_collection):
     return []
 
 
-if __name__ == "__main__":
-    list_all():
+# if __name__ == "__main__":
+#     list_all():
