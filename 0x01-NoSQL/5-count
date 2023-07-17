@@ -1,0 +1,4 @@
+// Task 5: Count documents in a MongoDB collection
+
+db.school.count();
+
