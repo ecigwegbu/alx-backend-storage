@@ -14,4 +14,4 @@ def update_topics(mongo_collection, name, topics):
     school
     """
     mongo_collection.update_one({"name": name}, {'$set': {'topics': topics}},
-                                True)
+                                upsert=True)
