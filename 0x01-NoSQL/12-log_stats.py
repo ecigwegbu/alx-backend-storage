@@ -11,3 +11,15 @@ if __name__ == '__main__':
     print('{} logs'.format(logdata.count_documents({})))
     print('Methods:')
     # loop over all documents
+    print('\tmethod GET: {}'.format(logdata.count_documents(
+          {"method": "GET"})))
+    print('\tmethod POST: {}'.format(logdata.count_documents(
+          {"method": "POST"})))
+    print('\tmethod PUT: {}'.format(logdata.count_documents(
+          {"method": "PUT"})))
+    print('\tmethod PATCH: {}'.format(logdata.count_documents(
+          {"method": "PATCH"})))
+    print('\tmethod DELETE: {}'.format(logdata.count_documents(
+          {"method": "DELETE"})))
+    print('{} status check'.format(logdata.count_documents(
+          {"method": "GET", "path": "/status"})))
