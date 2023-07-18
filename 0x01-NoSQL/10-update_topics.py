@@ -14,5 +14,5 @@ def update_topics(mongo_collection, name, topics):
     school
     """
     mongo_collection.delete_many({"name": name})
-    mongo_collection.update_one({"name": name}, {'$set': {'topics': topics}},
-                                upsert=True)
+    # mongo_collection.update_one({"name": name}, {'$set': {'topics': topics}},
+    #                             upsert=True)
