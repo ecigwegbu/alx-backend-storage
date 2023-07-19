@@ -1,0 +1,8 @@
+.mypy_cache
+tmp
+*.bak
+*.v*
+v0
+temp
+test*
+*.tmp
