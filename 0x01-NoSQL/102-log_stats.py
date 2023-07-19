@@ -2,7 +2,6 @@
 """15. Log stats - new version"""
 import pymongo
 from pymongo import MongoClient
-# from bson.son import SON
 
 
 if __name__ == '__main__':
