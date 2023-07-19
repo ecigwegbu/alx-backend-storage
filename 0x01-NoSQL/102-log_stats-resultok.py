@@ -24,13 +24,10 @@ if __name__ == '__main__':
           {"method": "DELETE"})))
     print('{} status check'.format(logdata.count_documents(
           {"method": "GET", "path": "/status"})))
-
-    # 102:
     print('IPs:')
     pipeline = [
         {"$group": {"_id": "$ip", "count": {"$sum": 1}}},
         {"$sort": {"count": -1, "_id": -1}},
-        # {"$sort": SON([("count", -1), ("_id", -1)])},
         {"$limit": 10}
     ]
     result = logdata.aggregate(pipeline)

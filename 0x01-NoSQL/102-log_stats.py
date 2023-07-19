@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""12. Log Stats - provide some stats about a Mongo database dump"""
+"""15. Log stats - new version"""
 import pymongo
 from pymongo import MongoClient
+# from bson.son import SON
 
 
 if __name__ == '__main__':
@@ -23,3 +24,12 @@ if __name__ == '__main__':
           {"method": "DELETE"})))
     print('{} status check'.format(logdata.count_documents(
           {"method": "GET", "path": "/status"})))
+    print('IPs:')
+    pipeline = [
+        {"$group": {"_id": "$ip", "count": {"$sum": 1}}},
+        {"$sort": {"count": -1, "_id": -1}},
+        {"$limit": 10}
+    ]
+    result = logdata.aggregate(pipeline)
+    for record in result:
+        print('\t{}: {}'.format(record["_id"], record["count"]))
