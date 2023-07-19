@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""15. Log stats - new version"""
+"""12. Log Stats - provide some stats about a Mongo database dump"""
 import pymongo
 from pymongo import MongoClient
-from bson.son import SON
 
 
 if __name__ == '__main__':
