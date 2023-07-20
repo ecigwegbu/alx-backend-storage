@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
-"""0. Writing strings to Redis
-Create a Cache class. In the __init__ method, store an instance of the
-Redis client as a private variable named _redis (using redis.Redis())
-and flush the instance using flushdb.
-
-Create a store method that takes a data argument and returns a string.
-The method should generate a random key (e.g. using uuid), store the
-input data in Redis using the random key and return the key.
-
-Type-annotate store correctly. Remember that data can be a str, bytes,
-int or float.
-"""
+"""5. Implement expiring web cache and tracker"""
+import requests
+import redis
 
 
-class Cache:
-    """Class for writing strings to Redis"""
-    pass
+def get_page(url: str) -> str:
+    """Return the URL of a web page and track number of visits
+    with an expiration of 10 seconds"""
+    # url = "https://www.google.com"
+    response = requests.get(url)
+    r = redis.Redis()
+    count = r.incr("count:{url}")
+    r.expire("count:{url}", 10)
+    return response.text
 
 
 if __name__ == '__main__':
-    pass
+    url = "https://www.google.com"
+    page = get_page(url)
+    r = redis.Redis()
+    print('Visited: ', int(r.get("count:{url}")))
