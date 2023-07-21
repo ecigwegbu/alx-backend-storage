@@ -16,7 +16,7 @@ def get_page(url: str) -> str:
 
 
 if __name__ == '__main__':
-    url = "https://www.google.com"
+    url = "http://google.com"
     page = get_page(url)
     r = redis.Redis()
     print('Visited: ', int(r.get("count:{url}")))
