@@ -7,7 +7,6 @@ import redis
 def get_page(url: str) -> str:
     """Return the URL of a web page and track number of visits
     with an expiration of 10 seconds"""
-    # url = "https://www.google.com"
     response = requests.get(url)
     r = redis.Redis()
     count = r.incr("count:{url}")
